@@ -1,5 +1,5 @@
 import { getInitialData } from "../utils/api";
-import { getQuestions } from "./tweets";
+import { getQuestions } from "./questions";
 import { getUsers } from "./users";
 import { showLoading, hideLoading } from "react-redux-loading";
 
