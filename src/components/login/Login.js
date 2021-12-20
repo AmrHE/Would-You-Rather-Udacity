@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import LoginHeader from "./loginHeader/LoginHeader";
-import UsersLoginGrid from "./userLoginGrid/UsersLoginGrid";
+import LoginHeader from "./LoginHeader";
+import UsersLoginGrid from "./UsersLoginGrid";
 
 class Login extends Component {
 	render() {

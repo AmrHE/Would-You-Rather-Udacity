@@ -1,8 +1,8 @@
 import {
 	_getUsers,
 	_getQuestions,
-	// _saveQuestionAnswer,
-	// _saveQuestion,
+	_saveQuestionAnswer,
+	_saveQuestion,
 } from "./_Data.js";
 
 export function getInitialData() {
@@ -13,11 +13,3 @@ export function getInitialData() {
 		})
 	);
 }
-
-// export function saveLikeToggle (info) {
-//   return _saveLikeToggle(info)
-// }
-
-// export function saveTweet (info) {
-//   return _saveTweet(info)
-// }

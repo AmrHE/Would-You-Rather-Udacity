@@ -2,19 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Header } from "semantic-ui-react";
 import { Form, Button } from "react-bootstrap";
-import { setAuthedUser } from "../../../actions/authUser";
-import { getUsers } from "../../../actions/users";
-import "./form.css";
+import { setAuthedUser } from "../../actions/authUser";
+import { getUsers } from "../../actions/users";
 
 class LoginForm extends Component {
 	state = {
 		value: "",
-		// user: -1,
 	};
-
-	// componentDidMount() {
-	// 	this.props.getUsers();
-	// }
 
 	handleOnChange = (e) => {
 		this.setState({ value: e.target.value });
@@ -23,19 +17,7 @@ class LoginForm extends Component {
 	handleOnSubmit = (e) => {
 		e.preventDefault();
 		const authedUser = this.state.value;
-
-		console.log(authedUser);
-
 		this.props.setAuthedUser(authedUser);
-
-		// if (this.props.users) {
-		// 	let user =
-		// 		this.state.user > -1
-		// 			? this.state.user
-		// 			: this.props.login(this.props.users.find((x) => x.id === user));
-		// } else {
-		// 	alert("no users found");
-		// }
 	};
 
 	dropdownMenuOptions = () => {
@@ -51,13 +33,13 @@ class LoginForm extends Component {
 	render() {
 		const { value } = this.state;
 		return (
-			<Form className="form" onSubmit={this.handleOnSubmit}>
-				<Header as="h2" className="header">
-					Login to Play 😉
+			<Form className="login-form" onSubmit={this.handleOnSubmit}>
+				<Header as="h2" className="login-form-header">
+					Login to start 😉
 				</Header>
-				<Form.Group className="container">
+				<Form.Group className="login-container">
 					<Form.Control
-						className="input"
+						className="login-input"
 						as="select"
 						size="lg"
 						name="user"
@@ -65,6 +47,7 @@ class LoginForm extends Component {
 						placeholder="select User"
 						defaultValue="select User"
 					>
+						<option value="">Choose a User</option>
 						{this.props.users.map((user) => (
 							<option key={user.id} value={user.id}>
 								{user.name}
@@ -72,7 +55,7 @@ class LoginForm extends Component {
 						))}
 					</Form.Control>
 					<Button
-						className="button"
+						className="login-button"
 						type="submit"
 						disabled={value === "" ? true : false}
 					>

@@ -1,4 +1,256 @@
 body {
 	padding: 0px;
 	margin: 0px;
+	font-family: sans-serif;
+	color: #252525;
+}
+
+#root {
+	background-color: rgb(117, 104, 230);
+	height: fullWidth;
+}
+.App {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+/****************LOGIN STYLES*********************/
+h4.ui.header {
+	background-color: mediumturquoise;
+	padding: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 25px;
+	margin-top: 0px;
+	border-radius: 10px;
+}
+.login-header-text {
+	margin-bottom: 10px;
+}
+
+.login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.login-image-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.login-image {
+	width: 55%;
+	border-radius: 20px;
+	/*TODO Add a box shadow for the image*/
+}
+.login-form {
+	width: 700px;
+}
+
+h2.ui.login-form-header {
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 25px;
+}
+.ui.grid > .row.login-container:first-of-type {
+	padding-top: 1em;
+}
+.ui.grid > .row.login-container:last-of-type {
+	padding-bottom: 1em;
+}
+.ui.grid > .row.login-container {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.login-container {
+	/* width: 400px; */
+}
+
+.login-input {
+	padding: 10px;
+	width: 500px;
+	margin-right: 5px;
+	font-size: 15px;
+}
+
+.login-button {
+	height: 48px;
+	width: 100px;
+	font-size: 15px;
+}
+
+/*************LEADERBOARD STYLES*****************/
+.leaderboard-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.leaderboard-card {
+	background-color: #fff;
+	color: #000;
+	width: 60%;
+	height: 220px;
+	display: flex;
+	padding: 10px;
+	padding-top: 50px;
+	position: relative;
+	border: 1px solid gray;
+	border-radius: 3px;
+	margin-bottom: 25px;
+}
+
+.leaderboard_header {
+	height: 20px;
+}
+
+.leaderboard-card_section {
+	border-left: 1px solid gray;
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+}
+
+.leaderboard-card_img {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: none;
+	position: relative;
+	padding: 0px;
+}
+.leaderboard-card_img-name {
+	padding-bottom: 15px;
+}
+
+.leaderboard-card_img-image {
+	border-radius: 50%;
+}
+
+.leaderboard-card_user {
+	display: flex;
+	flex-direction: column;
+	align-items: space-around;
+	justify-content: space-around;
+	padding: 0px;
+}
+.leaderboard-card_user--data {
+	padding: 25px 20px;
+}
+
+.leaderboard-card_user--data.first {
+	border-bottom: 1px solid gray;
+}
+
+.trophy-icon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 25px;
+	padding: 2px;
+	width: 30px;
+	height: 30px;
+}
+
+.trophy-icon.gold {
+	background-color: #ffd700;
+}
+.trophy-icon.silver {
+	background-color: #c0c0c0;
+}
+.trophy-icon.bronze {
+	background-color: #cd7f32;
+}
+
+.leaderboard-card_score {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.leaderboard-card_score-data {
+	padding: 20px;
+	font-size: 20px;
+}
+
+.leaderboard-card_score-data.first {
+	border-bottom: 1px solid gray;
+}
+
+/*************AddQuestion STYLES*****************/
+.addQuestion-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 15px;
+}
+
+.addQuestions-wrapper {
+	width: 50%;
+}
+
+.addQuestion-form_wrapper {
+	width: 100%;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 20px;
+	/* #f3f4f5 */
+}
+
+.addQuestion-form_header {
+	padding: 0px;
+}
+
+.option1 {
+	margin-top: 25px;
+}
+
+.card-text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px;
+}
+
+.addQuestion-submit_btn {
+	width: 100%;
+	margin-top: 20px;
+}
+
+/*************************ANSWERED QUESTIONS****************************/
+.answered-question_container {
+	display: flex;
+	justify-content: center;
+}
+
+.answered-question_card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+}
+
+/*************************UNANSWERED QUESTIONS****************************/
+.unanswered-question_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.unanswered-question_card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
 }

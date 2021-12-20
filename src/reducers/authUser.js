@@ -1,10 +1,12 @@
 //REDUCERS ARE PURE FUNCTIONS
 import { SET_AUTHED_USER } from "../actions/types";
 
-export default function authUser(state = null, action) {
+const initialState = null;
+
+export default function authUserReducer(state = initialState, action) {
 	switch (action.type) {
 		case SET_AUTHED_USER:
-			return action.id;
+			return action.payload.user;
 
 		default:
 			return state;
