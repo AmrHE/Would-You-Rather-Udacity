@@ -1,37 +1,50 @@
 import React, { Component } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { connect } from "react-redux";
+import { Redirect, withRouter } from "react-router-dom";
 import { saveQuestion } from "../../actions/questions";
 
 class AddQuestion extends Component {
 	state = {
 		optionOne: "",
 		optionTwo: "",
+		submitted: false,
 	};
 
 	handleChange = (e) => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
-	handleSubmit = (e) => {
+	handleSubmit = async (e) => {
 		e.preventDefault();
-
 		const { saveQuestion, authedUser } = this.props;
 		const { optionOne, optionTwo } = this.state;
-		const author = authedUser.id;
 
-		console.log("submit logs: ", optionOne, optionTwo);
+		// console.log("submit logs: ", optionOne, optionTwo);
 
 		const optionOneText = optionOne;
 		const optionTwoText = optionTwo;
+		// const author = authedUser.id;
 
 		if (optionOne !== "" && optionTwo !== "") {
-			saveQuestion({ optionOneText, optionTwoText, author });
+			await saveQuestion({
+				optionOneText,
+				optionTwoText,
+				author: authedUser.id,
+			});
 		}
+		this.setState({
+			optionOne: "",
+			optionTwo: "",
+			submitted: true,
+		});
 	};
 	render() {
+		const { optionOne, optionTwo, submitted } = this.state;
 		// const { authedUser, saveQuestion, users, questions } = this.props;
-		const { optionOne, optionTwo } = this.state;
+		if (submitted === true) {
+			return <Redirect to={{ pathname: "/" }} />;
+		}
 
 		return (
 			<div className="addQuestion-container">
@@ -51,6 +64,7 @@ class AddQuestion extends Component {
 								type="text"
 								placeholder="option one..."
 								className="option option1"
+								value={this.state.optionOne}
 								name="optionOne"
 								onChange={this.handleChange}
 							/>
@@ -67,6 +81,7 @@ class AddQuestion extends Component {
 								type="text"
 								placeholder="option two..."
 								className="option option2"
+								value={this.state.optionTwo}
 								name="optionTwo"
 								onChange={this.handleChange}
 							/>
@@ -95,4 +110,6 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, { saveQuestion })(AddQuestion);
+export default withRouter(
+	connect(mapStateToProps, { saveQuestion })(AddQuestion)
+);
