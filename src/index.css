@@ -6,7 +6,7 @@ body {
 }
 
 #root {
-	background-color: rgb(117, 104, 230);
+	/* background-color: rgb(117, 104, 230); */
 	height: fullWidth;
 }
 .App {
@@ -71,9 +71,9 @@ h2.ui.login-form-header {
 	padding-bottom: 0.5em;
 }
 
-.login-container {
-	/* width: 400px; */
-}
+/* .login-container {
+	width: 400px;
+} */
 
 .login-input {
 	padding: 10px;
