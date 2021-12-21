@@ -9,6 +9,12 @@ import "./home.css";
 
 const Home = (props) => {
 	const { users, questions, authedUser } = props;
+
+	const sortedQuestions = Object.values(questions).sort(
+		(a, b) => b.timestamp - a.timestamp
+	);
+	console.log(sortedQuestions);
+
 	return (
 		<div className="questions-list_container">
 			{/*THE WELL STYLED BUTTONS OF THE HOME PAGE*/}
@@ -30,7 +36,7 @@ const Home = (props) => {
 					className="unanswered-btn"
 				>
 					<ListGroup className="questions-list">
-						{Object.values(questions)
+						{Object.values(sortedQuestions)
 							.filter((question) => !authedUser.answers[question.id])
 							.map((question) => (
 								<QuestionTeaser
@@ -48,7 +54,7 @@ const Home = (props) => {
 					className="answered-btn"
 				>
 					<ListGroup className="questions-list">
-						{Object.values(questions)
+						{Object.values(sortedQuestions)
 							.filter((question) => authedUser.answers[question.id])
 							.map((question) => (
 								<QuestionTeaser
