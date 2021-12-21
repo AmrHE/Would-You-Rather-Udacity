@@ -28,6 +28,11 @@ const AnsweredQuestion = (props) => {
 				/>
 				<Card.Body>
 					<Card.Title>Would You Rather ?</Card.Title>
+					<hr />
+					<ProgressBar
+						now={optionOnePercentage}
+						label={`${optionOnePercentage}%`}
+					/>
 					<Card.Text>
 						{answerOfUser === "optionOne" ? (
 							<span>
@@ -38,11 +43,19 @@ const AnsweredQuestion = (props) => {
 						)}
 						{question.optionOne.text}
 					</Card.Text>
-					<ProgressBar
-						now={optionOnePercentage}
-						label={`${optionOnePercentage}%`}
-					/>
+					<Card.Text>
+						<b>
+							{`${optionOneVotes} out of ${
+								optionOneVotes + optionTwoVotes
+							} Votes`}
+						</b>
+					</Card.Text>
+					<hr />
 
+					<ProgressBar
+						now={optionTwoPercentage}
+						label={`${optionTwoPercentage}%`}
+					/>
 					<Card.Text>
 						{answerOfUser === "optionTwo" ? (
 							<span>
@@ -53,11 +66,14 @@ const AnsweredQuestion = (props) => {
 						)}
 						{question.optionTwo.text}
 					</Card.Text>
-					<ProgressBar
-						now={optionTwoPercentage}
-						label={`${optionTwoPercentage}%`}
-					/>
-					{answerOfUser === "optionTwo" ? <span>Your Vote</span> : <></>}
+					<Card.Text>
+						<b>
+							{`${optionTwoVotes} out of ${
+								optionOneVotes + optionTwoVotes
+							} Votes`}
+						</b>
+					</Card.Text>
+					{/* {answerOfUser === "optionTwo" ? <span>Your Vote</span> : <></>} */}
 				</Card.Body>
 			</Card>
 		</div>
