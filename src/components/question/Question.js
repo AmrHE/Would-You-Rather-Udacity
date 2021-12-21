@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import AnsweredQuestion from "../AnsweredQuestion";
 import UnansweredQuestion from "../UnansweredQuestion";
 
@@ -10,6 +11,8 @@ const Question = (props) => {
 	const qid = props.match.params.id;
 	// console.log(qid);
 	const question = questions[qid];
+
+	if (!question) return <Redirect to="/404" />;
 
 	const answered = authedUser.answers[qid];
 	const IMG = users[question.author].avatarURL;
